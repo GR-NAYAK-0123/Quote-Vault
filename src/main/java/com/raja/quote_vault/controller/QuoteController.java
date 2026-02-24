@@ -40,7 +40,7 @@ public class QuoteController {
         existingQuote.setContent(quote.getContent());
         existingQuote.setAuthor(quote.getAuthor());
         existingQuote.setCategory(quote.getCategory());
-        quoteService.addingQuote(quote);
+        quoteService.addingQuote(existingQuote);
         return new ResponseEntity<>("Updated Successfully", HttpStatus.OK);
     }
 
