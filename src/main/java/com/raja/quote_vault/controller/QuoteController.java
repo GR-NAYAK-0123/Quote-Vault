@@ -41,6 +41,12 @@ public class QuoteController {
         existingQuote.setAuthor(quote.getAuthor());
         existingQuote.setCategory(quote.getCategory());
         quoteService.addingQuote(quote);
-        return new ResponseEntity<>("Updation is completed", HttpStatus.OK);
+        return new ResponseEntity<>("Updated Successfully", HttpStatus.OK);
+    }
+
+    @GetMapping("/authorName/{author}")
+    public ResponseEntity<?> findQuoteByAuthorName(@PathVariable String author) throws Exception{
+        List<Quote> list = quoteService.getQuoteByAuthorName(author);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 }

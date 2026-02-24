@@ -31,4 +31,9 @@ public class QuoteServiceImpl implements IQuoteService{
     public List<Quote> getAllQuote() {
         return quoteRepo.findAll();
     }
+
+    @Override
+    public List<Quote> getQuoteByAuthorName(String author) {
+        return quoteRepo.findByAuthor(author);
+    }
 }

@@ -9,4 +9,5 @@ public interface IQuoteService {
     public String addingQuote(Quote quote);
     public Quote getQuoteById(String id);
     public List<Quote> getAllQuote();
+    public List<Quote> getQuoteByAuthorName(String author);
 }
