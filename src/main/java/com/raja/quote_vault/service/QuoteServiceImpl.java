@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +25,10 @@ public class QuoteServiceImpl implements IQuoteService{
     @Override
     public Quote getQuoteById(String id) {
         return quoteRepo.findById(id).orElseThrow(() -> new QuoteNotFoundException(id+" Quote doesn't exist"));
+    }
+
+    @Override
+    public List<Quote> getAllQuote() {
+        return quoteRepo.findAll();
     }
 }
