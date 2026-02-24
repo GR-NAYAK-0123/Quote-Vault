@@ -33,4 +33,14 @@ public class QuoteController {
         List<Quote> list = quoteService.getAllQuote();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> updateOneQuote(@RequestBody Quote quote){
+        Quote existingQuote = quoteService.getQuoteById(quote.getId());
+        existingQuote.setContent(quote.getContent());
+        existingQuote.setAuthor(quote.getAuthor());
+        existingQuote.setCategory(quote.getCategory());
+        quoteService.addingQuote(quote);
+        return new ResponseEntity<>("Updation is completed", HttpStatus.OK);
+    }
 }

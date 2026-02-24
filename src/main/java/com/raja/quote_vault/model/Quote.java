@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Quote {
     @Id
-    @Schema(hidden = true)
     private String id;
 
     @NotBlank
