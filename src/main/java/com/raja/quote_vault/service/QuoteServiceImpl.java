@@ -15,6 +15,7 @@ public class QuoteServiceImpl implements IQuoteService{
 
     private final IQuoteRepository quoteRepo;
 
+    //This method saves the quote in the database
     @Override
     public String addingQuote(Quote quote) {
         quote.setPostingDateTime(LocalDateTime.now());
@@ -22,21 +23,25 @@ public class QuoteServiceImpl implements IQuoteService{
         return "Quote is saved with id : "+quoteId;
     }
 
+    //This method returns the quotes by his id
     @Override
     public Quote getQuoteById(String id) {
         return quoteRepo.findById(id).orElseThrow(() -> new QuoteNotFoundException(id+" Quote doesn't exist"));
     }
 
+    //This method returns all quotes
     @Override
     public List<Quote> getAllQuote() {
         return quoteRepo.findAll();
     }
 
+    //This method gives the quote by author name
     @Override
     public List<Quote> getQuoteByAuthorName(String author) {
         return quoteRepo.findByAuthor(author);
     }
 
+    //This method is basically deletes the quote by his id
     @Override
     public String deleteQuoteById(String id) {
         quoteRepo.deleteById(id);
