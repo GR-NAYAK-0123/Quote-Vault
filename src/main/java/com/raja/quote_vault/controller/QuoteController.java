@@ -49,4 +49,10 @@ public class QuoteController {
         List<Quote> list = quoteService.getQuoteByAuthorName(author);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteQuote(@PathVariable String id){
+        String message = quoteService.deleteQuoteById(id);
+        return new ResponseEntity<>(message, HttpStatus.OK);
+    }
 }

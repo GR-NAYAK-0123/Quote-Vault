@@ -10,4 +10,5 @@ public interface IQuoteService {
     public Quote getQuoteById(String id);
     public List<Quote> getAllQuote();
     public List<Quote> getQuoteByAuthorName(String author);
+    public String deleteQuoteById(String id);
 }

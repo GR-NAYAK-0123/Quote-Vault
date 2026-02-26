@@ -36,4 +36,10 @@ public class QuoteServiceImpl implements IQuoteService{
     public List<Quote> getQuoteByAuthorName(String author) {
         return quoteRepo.findByAuthor(author);
     }
+
+    @Override
+    public String deleteQuoteById(String id) {
+        quoteRepo.deleteById(id);
+        return id+" Quote got deleted";
+    }
 }
